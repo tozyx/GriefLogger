@@ -28,6 +28,10 @@ public class GriefLoggerConfig {
     public static final Supplier<Integer> queueFrequency;
     public static final Supplier<Integer> helloFrequency;
 
+    public static final Supplier<Integer> inspectPermission;
+    public static final Supplier<Integer> lookupPermission;
+    public static final Supplier<Integer> pagePermission;
+
     static {
         IConfigBuilder config = ConfigBuilders.newTomlConfig(GriefLogger.MOD_ID, GriefLogger.MOD_ID, true);
         config.push("database");
@@ -55,6 +59,12 @@ public class GriefLoggerConfig {
 
         config.push("hello");
         helloFrequency = config.comment("The frequency at which the hello packet is sent to the server (every 'x' ticks)").onlyOnServer().define("helloFrequency", 600, 1, 1000);
+        config.pop();
+
+        config.push("permissions");
+        inspectPermission = config.comment("The permission required to use the inspect command").onlyOnServer().define("inspectPermission", 2, 0, 4);
+        lookupPermission = config.comment("The permission required to use the lookup command").onlyOnServer().define("lookPermission", 2, 0, 4);
+        pagePermission = config.comment("The permission required to use the page command").onlyOnServer().define("pagePermission", 2, 0, 4);
         config.pop();
 
         config.build();
