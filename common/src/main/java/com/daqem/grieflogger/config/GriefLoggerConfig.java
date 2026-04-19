@@ -7,7 +7,7 @@ import com.supermartijn642.configlib.api.IConfigBuilder;
 
 import java.util.function.Supplier;
 
-公共 class GriefLoggerConfig {
+public class GriefLoggerConfig {
 
     public static void init() {
     }
@@ -27,6 +27,10 @@ import java.util.function.Supplier;
 
     public static final Supplier<Integer> queueFrequency;
     public static final Supplier<Integer> helloFrequency;
+    
+    public static final Supplier<Integer> inspectPermission;
+    public static final Supplier<Integer> lookupPermission;
+    public static final Supplier<Integer> pagePermission;
 
     static {
         IConfigBuilder config = ConfigBuilders.newTomlConfig(GriefLogger.MOD_ID, GriefLogger.MOD_ID, true);
