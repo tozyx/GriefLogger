@@ -6,7 +6,7 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 
-公共 class InspectCommand implements ICommand {
+public class InspectCommand implements ICommand {
 
 
     @Override
