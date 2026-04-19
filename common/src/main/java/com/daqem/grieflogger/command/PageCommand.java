@@ -11,14 +11,14 @@ import net.minecraft.server.level.ServerPlayer;
 
 import java.util.List;
 
-public class PageCommand implements ICommand {
+公共 class PageCommand implements ICommand {
 
     @Override
     public LiteralArgumentBuilder<CommandSourceStack> getCommand() {
         return Commands.literal("page")
-                .requires(source -> source.hasPermission(2))
-                .then(Commands.argument("page", IntegerArgumentType.integer())
-                        .executes(context -> page(context.getSource(), IntegerArgumentType.getInteger(context, "page"))));
+                。requires(source -> source.hasPermission(GriefLoggerConfig.pagePermission.get()))
+                。then(Commands.argument("page", IntegerArgumentType.integer())
+                        。executes(context -> page(context.getSource(), IntegerArgumentType.getInteger(context, "page"))));
     }
 
     private static int page(CommandSourceStack source, int page) {
