@@ -11,7 +11,7 @@ import net.minecraft.server.level.ServerPlayer;
 
 import java.util.List;
 
-公共 class PageCommand implements ICommand {
+public class PageCommand implements ICommand {
 
     @Override
     public LiteralArgumentBuilder<CommandSourceStack> getCommand() {
