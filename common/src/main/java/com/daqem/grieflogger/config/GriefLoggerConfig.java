@@ -30,6 +30,10 @@ public class GriefLoggerConfig {
     public static final IConfigEntry<Integer> queueFrequency;
     public static final IConfigEntry<Integer> helloFrequency;
 
+    public static final IConfigEntry<Integer> inspectPermission;
+    public static final IConfigEntry<Integer> lookupPermission;
+    public static final IConfigEntry<Integer> pagePermission;
+
     static {
         ConfigBuilder config = new ConfigBuilder(
                 GriefLogger.MOD_ID,
@@ -76,6 +80,15 @@ public class GriefLoggerConfig {
         config.push("hello");
         helloFrequency = config.defineInteger("helloFrequency", 600, 1, 1000)
                 .withComments("The frequency at which the hello packet is sent to the server (every 'x' ticks)");
+        config.pop();
+
+        config.push("permissions");
+        inspectPermission = config.defineInteger("inspectPermission", 2, 0, 4)
+                .withComments("The permission required to use the inspect command");
+        lookupPermission = config.defineInteger("lookPermission", 2, 0, 4)
+                .withComments("The permission required to use the lookup command");
+        pagePermission = config.defineInteger("pagePermission", 2, 0, 4)
+                .withComments("The permission required to use the page command");
         config.pop();
 
         config.build();

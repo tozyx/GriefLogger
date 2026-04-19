@@ -19,7 +19,7 @@ public class GriefLoggerCommand {
 
     private static LiteralArgumentBuilder<CommandSourceStack> commandWithPrefix(String prefix) {
         return Commands.literal(prefix)
-                .requires(source -> GriefLoggerPermissions.check(source, "grieflogger.command", 2))
+                .requires(source -> GriefLoggerPermissions.check(source, "grieflogger.command", 0))
                 .then(INSPECT.getCommand())
                 .then(LOOKUP.getCommand())
                 .then(PAGE.getCommand());

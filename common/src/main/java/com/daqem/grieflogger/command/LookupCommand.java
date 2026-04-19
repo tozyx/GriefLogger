@@ -6,6 +6,7 @@ import com.daqem.grieflogger.command.argument.FilterArgument;
 import com.daqem.grieflogger.command.filter.FilterList;
 import com.daqem.grieflogger.command.filter.IFilter;
 import com.daqem.grieflogger.command.page.Page;
+import com.daqem.grieflogger.config.GriefLoggerConfig;
 import com.daqem.grieflogger.database.service.Services;
 import com.daqem.grieflogger.model.history.IHistory;
 import com.daqem.grieflogger.player.GriefLoggerServerPlayer;
@@ -32,7 +33,7 @@ public class LookupCommand implements ICommand {
     @Override
     public LiteralArgumentBuilder<CommandSourceStack> getCommand() {
         return Commands.literal("lookup")
-                .requires(source -> GriefLoggerPermissions.check(source, "grieflogger.command.lookup", 2))
+                .requires(source -> GriefLoggerPermissions.check(source, "grieflogger.command.lookup", GriefLoggerConfig.lookupPermission.get()))
                 .then(Commands.argument("filters", StringArgumentType.greedyString())
                         .suggests(LookupCommand::suggestFilters)
                         .executes(context -> lookup(context.getSource(), StringArgumentType.getString(context, "filters"))))
