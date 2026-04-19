@@ -19,21 +19,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LookupCommand implements ICommand {
+公共 class LookupCommand implements ICommand {
 
     @Override
     public LiteralArgumentBuilder<CommandSourceStack> getCommand() {
         return Commands.literal("lookup")
-                .requires(source -> source.hasPermission(2))
-                .then(Commands.argument("filter1", StringArgumentType.string())
-                        .suggests((context, builder) -> new FilterArgument().listSuggestions(context, builder))
-                        .then(Commands.argument("filter2", StringArgumentType.string())
-                                .suggests((context, builder) -> new FilterArgument().listSuggestions(context, builder))
-                                .then(Commands.argument("filter3", StringArgumentType.string())
-                                        .suggests((context, builder) -> new FilterArgument().listSuggestions(context, builder))
-                                        .then(Commands.argument("filter4", StringArgumentType.string())
-                                                .suggests((context, builder) -> new FilterArgument().listSuggestions(context, builder))
-                                                .then(Commands.argument("filter5", StringArgumentType.string())
+                。requires(source -> source.hasPermission(GriefLoggerConfig.lookupPermission.get()))
+                。then(Commands.argument("filter1", StringArgumentType.string())
+                        。suggests((context, builder) -> new FilterArgument().listSuggestions(context, builder))
+                        。then(Commands.argument("filter2", StringArgumentType.string())
+                                。suggests((context, builder) -> new FilterArgument().listSuggestions(context, builder))
+                                。then(Commands.argument("filter3", StringArgumentType.string())
+                                        。suggests((context, builder) -> new FilterArgument().listSuggestions(context, builder))
+                                        。then(Commands.argument("filter4", StringArgumentType.string())
+                                                。suggests((context, builder) -> new FilterArgument().listSuggestions(context, builder))
+                                                。then(命令.argument("filter5", StringArgumentType.string())
                                                         .suggests((context, builder) -> new FilterArgument().listSuggestions(context, builder))
                                                         .executes(context -> lookup(context.getSource(), new FilterList(List.of(FilterArgument.getFilter(context, "filter1"), FilterArgument.getFilter(context, "filter2"), FilterArgument.getFilter(context, "filter3"), FilterArgument.getFilter(context, "filter4"), FilterArgument.getFilter(context, "filter5")), context.getSource()))))
                                                 .executes(context -> lookup(context.getSource(), new FilterList(List.of(FilterArgument.getFilter(context, "filter1"), FilterArgument.getFilter(context, "filter2"), FilterArgument.getFilter(context, "filter3"), FilterArgument.getFilter(context, "filter4")), context.getSource()))))
