@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-公共 class LookupCommand implements ICommand {
+public class LookupCommand implements ICommand {
 
     @Override
     public LiteralArgumentBuilder<CommandSourceStack> getCommand() {
