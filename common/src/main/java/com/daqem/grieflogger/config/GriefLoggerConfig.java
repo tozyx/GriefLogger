@@ -27,10 +27,11 @@ public class GriefLoggerConfig {
 
     public static final Supplier<Integer> queueFrequency;
     public static final Supplier<Integer> helloFrequency;
-    
+
     public static final Supplier<Integer> inspectPermission;
     public static final Supplier<Integer> lookupPermission;
     public static final Supplier<Integer> pagePermission;
+
 
     static {
         IConfigBuilder config = ConfigBuilders.newTomlConfig(GriefLogger.MOD_ID, GriefLogger.MOD_ID, true);
